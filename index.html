@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kristina Bognot — QA Portfolio</title>
+  <meta name="description"
+    content="QA / Quality Engineer portfolio of Kristina Cassandra Bognot: test cases, defect reports and requirements traceability.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    a:hover {
+      color: var(--accent-hover)
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px
+    }
+
+    .kc-card {
+      transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease
+    }
+
+    .kc-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent) !important;
+      box-shadow: 0 20px 40px rgba(var(--accent-rgb), 0.1)
+    }
+
+    .kc-btn {
+      transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease
+    }
+
+    .kc-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(var(--accent-rgb), 0.3)
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .kc-card,
+      .kc-btn {
+        transition: none
+      }
+
+      .kc-card:hover,
+      .kc-btn:hover {
+        transform: none
+      }
+    }
+
+    @media (max-width:768px) {
+      .kc-navlinks {
+        display: none !important
+      }
+
+      .kc-name {
+        font-size: 48px !important
+      }
+
+      .kc-hello {
+        font-size: 40px !important
+      }
+
+      .kc-h2 {
+        font-size: 32px !important
+      }
+
+      .kc-hero {
+        text-align: center
+      }
+
+      .kc-hero-ctas {
+        justify-content: center
+      }
+    }
+
+    @media (max-width:480px) {
+      .kc-name {
+        font-size: 40px !important
+      }
+
+      .kc-hello {
+        font-size: 32px !important
+      }
+    }
+  </style>
+  <style>
+    html {
+      scroll-behavior: smooth
+    }
+
+    #top,
+    section,
+    footer {
+      scroll-margin-top: 72px
+    }
+  </style>
+  <script>try { var t = localStorage.getItem('kc-theme'); if (!t) t = 'light'; document.documentElement.setAttribute('data-theme', t) } catch (e) { }</script>
+  <style>
+    :root,
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #1a1a1a;
+      --bg-end: #2d2d2d;
+      --bg-deep: #0a0a0a;
+      --nav-bg: rgba(26, 26, 26, 0.95);
+      --panel: #1e1e1e;
+      --panel-2: #262626;
+      --tint: 255, 255, 255;
+      --ink: #ffffff;
+      --ink-body: #cccccc;
+      --ink-muted: #9a9a9a;
+      --accent: #00ff7f;
+      --accent-hover: #00cc66;
+      --accent-rgb: 0, 255, 127;
+      --on-accent: #1a1a1a;
+      --amber: #ffb347;
+      --amber-rgb: 255, 179, 71;
+      --red: #ff8a8a;
+      --red-rgb: 255, 138, 138;
+      --blue: #8cc2ff;
+      --blue-rgb: 124, 183, 255
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f5f7f5;
+      --bg-end: #e6ebe8;
+      --bg-deep: #dde4e0;
+      --nav-bg: rgba(245, 247, 245, 0.95);
+      --panel: #ffffff;
+      --panel-2: #eef2ef;
+      --tint: 18, 22, 20;
+      --ink: #121614;
+      --ink-body: #3a423d;
+      --ink-muted: #5f6863;
+      --accent: #007a3d;
+      --accent-hover: #006131;
+      --accent-rgb: 0, 122, 61;
+      --on-accent: #ffffff;
+      --amber: #8a4b00;
+      --amber-rgb: 214, 124, 0;
+      --red: #b42318;
+      --red-rgb: 220, 60, 60;
+      --blue: #1d5fae;
+      --blue-rgb: 40, 110, 200
+    }
+
+    html {
+      background: var(--bg)
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--ink-body);
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-end) 100%);
+      background-attachment: fixed;
+      line-height: 1.6
+    }
+
+    .f-accent {
+      fill: var(--accent)
+    }
+
+    .s-accent {
+      stroke: var(--accent)
+    }
+
+    .f-onacc {
+      fill: var(--on-accent)
+    }
+
+    .s-onacc {
+      stroke: var(--on-accent)
+    }
+
+    .f-muted {
+      fill: var(--ink-muted)
+    }
+
+    .s-muted {
+      stroke: var(--ink-muted)
+    }
+
+    .f-amber {
+      fill: var(--amber)
+    }
+
+    .s-amber {
+      stroke: var(--amber)
+    }
+
+    .kc-theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(var(--tint), 0.2);
+      background: rgba(var(--tint), 0.05);
+      color: var(--accent);
+      cursor: pointer;
+      transition: transform 300ms ease, border-color 300ms ease
+    }
+
+    .kc-theme-toggle:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px)
+    }
+
+    .kc-theme-toggle .i-sun {
+      display: none
+    }
+
+    [data-theme="light"] .kc-theme-toggle .i-sun {
+      display: block
+    }
+
+    [data-theme="light"] .kc-theme-toggle .i-moon {
+      display: none
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kc-theme-toggle {
+        transition: none
+      }
+
+      .kc-theme-toggle:hover {
+        transform: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div
+    style="font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--ink-body); background: linear-gradient(135deg, var(--bg) 0%, var(--bg-end) 100%); min-height: 100vh; line-height: 1.6; font-size: 16px">
+
+    <!-- NAV -->
+    <nav
+      style="position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(var(--tint),0.1)">
+      <div
+        style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <a href="#top" style="font-size: 24px; font-weight: 700; line-height: 1; color: var(--accent)">KC</a>
+        <div class="kc-navlinks" style="display: flex; gap: 32px; flex-wrap: wrap">
+          <a href="#skills" style="color: var(--ink-body)">Skills</a>
+          <a href="#case-studies" style="color: var(--ink-body)">Case Studies</a>
+          <a href="#work" style="color: var(--ink-body)">Projects</a>
+          <a href="#testcases" style="color: var(--ink-body)">Test Cases</a>
+          <a href="#api" style="color: var(--ink-body)">API</a>
+          <a href="#defects" style="color: var(--ink-body)">Defects</a>
+          <a href="#rtm" style="color: var(--ink-body)">Traceability</a>
+          <a href="#contact" style="color: var(--ink-body)">Contact</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 24px">
+          <button type="button" class="kc-theme-toggle" id="kc-theme-btn" aria-label="Switch to light mode"><svg
+              class="i-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+            </svg><svg class="i-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4">
+              </path>
+            </svg></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="top"
+      style="background: radial-gradient(circle at 20% 50%, rgba(var(--accent-rgb),0.1), transparent 55%)">
+      <div class="kc-hero"
+        style="max-width: 1200px; margin: 0 auto; padding: 96px 32px 64px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+        <div style="flex: 999 1 520px; min-width: 0">
+          <p style="margin: 0 0 8px; font-size: 20px; font-weight: 700; line-height: 1.4; color: var(--ink-muted)">
+            Quality Engineer · Manual &amp; API Testing</p>
+          <h1 style="margin: 0">
+            <span class="kc-hello" style="display: block; font-size: 56px; line-height: 1.15; color: var(--ink)">Hello
+              I'm</span>
+            <span class="kc-name"
+              style="display: block; margin-top: 8px; font-size: 64px; line-height: 1.1; letter-spacing: -0.01em; color: var(--accent)">Kristina
+              Cassandra "KC" Bognot</span>
+          </h1>
+          <p style="margin: 24px 0 32px; font-size: 18px; color: var(--ink-body); max-width: 640px">Quality Assurance
+            Engineer | Business Analyst |
+            I turn user stories and acceptance criterias into test cases, test cases into
+            clear bug reports, and requirements into
+            traceable coverage.</p>
+          <div class="kc-hero-ctas" style="display: flex; flex-wrap: wrap; gap: 16px">
+            <a class="kc-btn" href="#work"
+              style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; background: var(--accent); color: var(--on-accent); font-weight: 700">See
+              my work</a>
+            <a class="kc-btn" href="BOGNOT_Kristina Cassandra_QA Engineer_CV.pdf" download="Kristina-Bognot-CV.pdf"
+              style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; border: 2px solid var(--accent); color: var(--accent); font-weight: 700">DOWNLOAD
+              CV ↓</a>
+          </div>
+        </div>
+        <div style="flex: 1 1 300px; display: flex; justify-content: center">
+          <div
+            style="width: 300px; height: 300px; max-width: 100%; border-radius: 50%; border: 3px solid var(--accent); overflow: hidden; flex: none">
+            <img src="kaysea.jpg" alt="Kristina Bognot"
+              style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 50%">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- STATS -->
+    <section aria-label="Highlights" style="max-width: 1200px; margin: 0 auto; padding: 48px 32px 64px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px)">
+          <p style="margin: 0; font-size: 40px; font-weight: 700; line-height: 1.1; color: var(--accent)">32</p>
+          <p style="margin: 8px 0 0; font-size: 16px; color: var(--ink-body)">business requirements traced from BR → SR
+            → feature in an RTM</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px)">
+          <p style="margin: 0; font-size: 40px; font-weight: 700; line-height: 1.1; color: var(--accent)">6</p>
+          <p style="margin: 8px 0 0; font-size: 16px; color: var(--ink-body)">portal test suites for one licensing
+            platform, tagged Smoke &amp; Regression</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px)">
+          <p style="margin: 0; font-size: 40px; font-weight: 700; line-height: 1.1; color: var(--accent)">7</p>
+          <p style="margin: 8px 0 0; font-size: 16px; color: var(--ink-body)">user roles covered in end-to-end approval
+            journeys</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px)">
+          <p style="margin: 0; font-size: 40px; font-weight: 700; line-height: 1.1; color: var(--accent)">5</p>
+          <p style="margin: 8px 0 0; font-size: 16px; color: var(--ink-body)">products tested across licensing,
+            workflow, HR and engagement apps</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 48px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          What I Do</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <h3 style="margin: 0 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">Test Planning &amp;
+            Design</h3>
+          <p style="margin: 0">Analyzed user stories and acceptance criteria to build test plans and test cases with
+            preconditions, numbered steps and expected results. Cover happy paths, negative inputs and boundaries.</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <h3 style="margin: 0 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">Execution: Exploratory,
+            Sanity, Smoke,
+            Regression, SAT</h3>
+          <p style="margin: 0">Executed regression rounds and batches, marked each step Passed, Failed or Blocked,
+            and attached screenshot evidence and a reason for every blocked step.</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <h3 style="margin: 0 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">Defect Management</h3>
+          <p style="margin: 0">Wrote reproducible bug reports (environment, preconditions, steps, expected vs actual,
+            priority), filed them in GitLab and Jira, and verified fixes before closing.</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <h3 style="margin: 0 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">Requirements
+            Traceability</h3>
+          <p style="margin: 0">Linked business and stakeholder requirements to features, test suites and defects, so
+            coverage gaps show up before release, not after.</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <h3 style="margin: 0 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">API &amp; Data Checks
+          </h3>
+          <p style="margin: 0">Designed REST API tests (GET / PATCH, status codes, response bodies) and audit-log checks
+            verified at the raw-data level with read-only SQL.</p>
+        </div>
+        <div
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <h3 style="margin: 0 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">Agile Teamwork</h3>
+          <p style="margin: 0">Worked in Scrum across several squads: daily stand-ups, sprint checkpoints, retros and
+            BA/QA alignment sessions.</p>
+        </div>
+      </div>
+      <p style="margin: 32px 0 0; text-align: center; font-size: 14px; color: var(--ink-muted)">Google Sheets · GitLab ·
+        API Testing · Typescript ·
+        Gitlab Issues · Jira · REST APIs · SQL · Chrome DevTools · Agile Scrum · Playwright</p>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="case-studies" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          Case Studies</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 720px; text-align: center">Personal projects I built end to end, with
+        the code, a live demo and the test report to back them up.</p>
+
+      <article class="kc-card"
+        style="display: flex; flex-wrap: wrap; background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; overflow: hidden">
+        <div style="flex: 1 1 440px; min-width: 0; background: var(--panel)">
+          <img src="Deskside Supply_E-Commerce Order API.png"
+            alt="Deskside Supply demo store showing products with stock levels, a checkout, and a receipt rail of API requests with status codes 201, 409 and 422."
+            style="display: block; width: 100%; height: 100%; min-height: 300px; object-fit: cover; object-position: top left">
+        </div>
+        <div style="flex: 1 1 440px; min-width: 0; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+          <p style="margin: 0; font-size: 14px; color: var(--ink-muted)">Personal project · Playwright + TypeScript ·
+            API test automation</p>
+          <h3 style="margin: 0; font-size: 28px; line-height: 1.3; color: var(--accent)">E-Commerce Order API:
+            Risk-Based API Test Automation</h3>
+          <p style="margin: 0; font-size: 18px; font-weight: 700; color: var(--ink)">Preventing overselling and
+            duplicate orders in an order API</p>
+          <p style="margin: 0">I tested an e-commerce order API's highest-risk workflows (order creation, insufficient
+            inventory, and duplicate submission) by designing positive, negative, boundary and concurrency API checks in
+            Playwright + TypeScript, produced a reproducible test suite with an HTML report published by CI, and used
+            the results to define release criteria for the order endpoint.</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><a
+                href="https://github.com/&lt;your-username&gt;/ecommerce-order-api-automation"
+                style="font-weight: 700">Code ↗</a><span
+                style="padding: 1px 10px; border-radius: 999px; background: rgba(var(--amber-rgb),0.16); color: var(--amber); font-size: 13px; font-weight: 700">placeholder:
+                add your username</span></li>
+            <li style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><a href="&lt;your-render-url&gt;"
+                style="font-weight: 700">Live demo ↗</a><span
+                style="padding: 1px 10px; border-radius: 999px; background: rgba(var(--amber-rgb),0.16); color: var(--amber); font-size: 13px; font-weight: 700">placeholder:
+                add your Render URL</span><span style="flex-basis: 100%; font-size: 14px; color: var(--ink-muted)">Free
+                hosting: first load may take up to a minute</span></li>
+            <li style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><a
+                href="https://&lt;your-username&gt;.github.io/ecommerce-order-api-automation/"
+                style="font-weight: 700">Latest test report ↗</a><span
+                style="padding: 1px 10px; border-radius: 999px; background: rgba(var(--amber-rgb),0.16); color: var(--amber); font-size: 13px; font-weight: 700">placeholder:
+                add your username</span></li>
+          </ul>
+          <a class="kc-btn" href="ecommerce-order-api.html"
+            style="align-self: flex-start; margin-top: 8px; display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; background: var(--accent); color: var(--on-accent); font-weight: 700">Read
+            the case study →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="work" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          Projects</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 720px; text-align: center">Open my actual working sheets. Pick a
+        project, then click a row number to inspect a case.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+        <!-- project picker -->
+        <div role="group" aria-label="Choose a project"
+          style="flex: 1 1 260px; max-width: 100%; display: flex; flex-direction: column; gap: 12px">
+          <div id="kc-picker" style="display: contents"></div>
+        </div>
+
+        <!-- sheet window -->
+        <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+          <div
+            style="border: 1px solid rgba(var(--tint),0.14); border-radius: 16px; overflow: hidden; background: var(--panel); box-shadow: 0 20px 40px rgba(0,0,0,0.35)">
+
+            <!-- title bar -->
+            <div
+              style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--panel-2); border-bottom: 1px solid rgba(var(--tint),0.1)">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" style="flex: none">
+                <rect x="3" y="2" width="18" height="20" rx="3" class="f-accent"></rect>
+                <path d="M7 8h10M7 12h10M7 16h10M12 8v10" stroke-width="1.6" fill="none" class="s-onacc"></path>
+              </svg>
+              <div style="min-width: 0">
+                <p
+                  style="margin: 0; font-size: 15px; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
+                  <span id="kc-file"></span>
+                </p>
+                <p style="margin: 0; font-size: 13px; line-height: 1.4; color: var(--ink-muted)">File · Edit · View ·
+                  Insert · Format · Data</p>
+              </div>
+              <a href="[LINK TO SANITIZED SHEET]"
+                style="margin-left: auto; flex: none; display: inline-flex; align-items: center; min-height: 36px; padding: 6px 16px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); font-size: 14px; font-weight: 700">Open
+                sample ↗</a>
+            </div>
+
+            <!-- formula bar -->
+            <div
+              style="display: flex; align-items: center; border-bottom: 1px solid rgba(var(--tint),0.1); font-size: 14px">
+              <span
+                style="flex: none; width: 64px; padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.1); color: var(--ink-body); font-weight: 700"><span
+                  id="kc-cell"></span></span>
+              <span style="flex: none; padding: 8px 12px; color: var(--ink-muted); font-style: italic">fx</span>
+              <span
+                style="flex: 1; min-width: 0; padding: 8px 12px 8px 0; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span
+                  id="kc-formula"></span></span>
+            </div>
+
+            <!-- grid -->
+            <div style="overflow-x: auto">
+              <div style="min-width: 900px; font-size: 14px; line-height: 1.45">
+                <div
+                  style="display: grid; grid-template-columns: 44px 1.25fr 1.25fr 1.5fr 104px 1fr; background: var(--panel-2); color: var(--ink-muted); text-align: center; border-bottom: 1px solid rgba(var(--tint),0.1)">
+                  <span style="padding: 4px; border-right: 1px solid rgba(var(--tint),0.08)"></span>
+                  <span style="padding: 4px; border-right: 1px solid rgba(var(--tint),0.08)">A</span>
+                  <span style="padding: 4px; border-right: 1px solid rgba(var(--tint),0.08)">B</span>
+                  <span style="padding: 4px; border-right: 1px solid rgba(var(--tint),0.08)">C</span>
+                  <span style="padding: 4px; border-right: 1px solid rgba(var(--tint),0.08)">D</span>
+                  <span style="padding: 4px">E</span>
+                </div>
+                <div
+                  style="display: grid; grid-template-columns: 44px 1.25fr 1.25fr 1.5fr 104px 1fr; background: var(--panel-2); color: var(--ink); font-weight: 700; border-bottom: 2px solid var(--accent)">
+                  <span
+                    style="padding: 8px 4px; text-align: center; color: var(--ink-muted); font-weight: 400; border-right: 1px solid rgba(var(--tint),0.08)">1</span>
+                  <span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)">TEST CASE</span>
+                  <span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)">STEPS TO
+                    EXECUTE</span>
+                  <span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)">EXPECTED
+                    RESULTS</span>
+                  <span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)">STATUS</span>
+                  <span style="padding: 8px 12px"><span id="kc-colE"></span></span>
+                </div>
+                <div id="kc-rows"></div>
+              </div>
+            </div>
+
+            <!-- sheet tabs -->
+            <div
+              style="display: flex; gap: 4px; padding: 0 12px; background: var(--panel-2); border-top: 1px solid rgba(var(--tint),0.1); overflow-x: auto; font-size: 13px">
+              <span aria-hidden="true" style="flex: none; padding: 10px 8px; color: var(--ink-muted)">+ ≡</span>
+              <span id="kc-tabs" style="display: contents"></span>
+            </div>
+          </div>
+
+          <!-- what this sheet shows -->
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch">
+            <div id="kc-facts" style="display: contents"></div>
+          </div>
+          <p style="margin: 0; font-size: 16px; color: var(--ink-body)"><strong style="color: var(--ink)">Why it's built
+              this way: </strong><span id="kc-note"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAMPLE TEST CASE -->
+    <section id="testcases" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          Sample Test Case</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 720px; text-align: center">How I write and execute a case: one
+        precondition set, numbered steps, a specific expected result per step, and an honest status with evidence.</p>
+      <div
+        style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+        <p style="margin: 0; font-size: 14px; color: var(--ink-muted)">Login and Authentication</p>
+        <h3 style="margin: 4px 0 8px; font-size: 24px; line-height: 1.35; color: var(--accent)">Admin can log in to the
+          workflow portal</h3>
+        <p style="margin: 0 0 24px"><strong style="color: var(--ink)">Preconditions:</strong> 1. User has an admin
+          account.
+          2. User has accepted the invitation and created the account.</p>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px">
+            <thead>
+              <tr style="text-align: left; color: var(--ink)">
+                <th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 32%">Step</th>
+                <th style="padding: 12px; border-bottom: 2px solid var(--accent)">Expected result</th>
+                <th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 110px">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">1. Open
+                  the portal login page</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">Login
+                  page shows the logo, header, Username and Password fields and the Login button</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top"><span
+                    style="display: inline-block; padding: 2px 12px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-size: 14px; font-weight: 700">Passed</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">2. Leave
+                  Username and Password empty</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">Login
+                  stays disabled; helper text "Please fill in all fields to enable login" shows</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top"><span
+                    style="display: inline-block; padding: 2px 12px; border-radius: 999px; background: rgba(var(--amber-rgb),0.14); color: var(--amber); font-size: 14px; font-weight: 700">Blocked</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">3. Enter
+                  invalid credentials and click Login</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">A generic
+                  error that does not reveal which field is wrong; user stays on the login page</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top"><span
+                    style="display: inline-block; padding: 2px 12px; border-radius: 999px; background: rgba(var(--amber-rgb),0.14); color: var(--amber); font-size: 14px; font-weight: 700">Blocked</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">4. Enter
+                  valid credentials</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top">Login
+                  becomes enabled; helper text hides</td>
+                <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); vertical-align: top"><span
+                    style="display: inline-block; padding: 2px 12px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-size: 14px; font-weight: 700">Passed</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; vertical-align: top">5. Click Login</td>
+                <td style="padding: 12px; vertical-align: top">User lands on the Dashboard (/dashboard)</td>
+                <td style="padding: 12px; vertical-align: top"><span
+                    style="display: inline-block; padding: 2px 12px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-size: 14px; font-weight: 700">Passed</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin: 16px 0 0; font-size: 14px; color: var(--ink-muted)">Blocked steps note the reason (e.g. needed
+          a logout the session owner had not approved) so the team knows exactly what is left to run. Every passed step
+          links to a screenshot.</p>
+      </div>
+    </section>
+
+    <!-- API TESTING -->
+    <section id="api" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          API Testing</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 760px; text-align: center">A case study: hardening a status-change
+        endpoint that, per its ticket, accepted any status change. I designed 20 test cases to prove the new transition
+        rules hold, including when someone tries to get around them.</p>
+
+      <!-- endpoint + coverage -->
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 24px">
+        <div
+          style="flex: 1 1 340px; background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <p
+            style="margin: 0 0 12px; font-size: 14px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.06em">
+            ENDPOINT UNDER TEST</p>
+          <p
+            style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 17px; color: var(--ink)">
+            <span
+              style="display: inline-block; padding: 2px 10px; margin-right: 8px; border-radius: 6px; background: rgba(var(--amber-rgb),0.16); color: var(--amber); font-weight: 700">PATCH</span>/applications/:id/status
+          </p>
+          <p style="margin: 16px 0 0">Rules to prove: only allowed next statuses, only by the current assignee, approval
+            and release only through the issuance flow, and every change written to the audit log with actor,
+            from-status and to-status.</p>
+        </div>
+        <div
+          style="flex: 1 1 480px; background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px">
+          <p
+            style="margin: 0 0 12px; font-size: 14px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.06em">
+            20 TEST CASES BY TYPE</p>
+          <div role="img" aria-label="3 happy path, 9 negative, 8 edge case"
+            style="display: flex; height: 16px; border-radius: 999px; overflow: hidden; gap: 2px">
+            <span style="flex: 3; background: var(--accent)"></span>
+            <span style="flex: 9; background: var(--amber)"></span>
+            <span style="flex: 8; background: var(--blue)"></span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; font-size: 15px">
+            <span><b style="color: var(--accent)">3</b> happy paths</span>
+            <span><b style="color: var(--amber)">9</b> negative scenarios</span>
+            <span><b style="color: var(--blue)">8</b> edge cases</span>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 15px">Negatives include disallowed jumps, skip-ahead and backward
+            moves, unknown or empty values, non-assignee and unauthenticated calls. Edge cases cover same-status, CASE
+            and whitespace tricks, spoofed body fields, concurrent and replayed requests, and cross-tenant IDs.</p>
+        </div>
+      </div>
+
+      <!-- executed requests -->
+      <p style="margin: 48px 0 16px; font-size: 20px; font-weight: 700; color: var(--ink)">Requests I ran, and what came
+        back</p>
+      <div style="display: flex; flex-direction: column; gap: 16px; font-size: 14px">
+
+        <div
+          style="display: flex; flex-wrap: wrap; border: 1px solid rgba(var(--tint),0.12); border-radius: 16px; overflow: hidden; background: var(--panel)">
+          <div style="flex: 1 1 420px; min-width: 0; padding: 20px; border-right: 1px solid rgba(var(--tint),0.1)">
+            <p style="margin: 0 0 8px; color: var(--ink-muted); font-weight: 700">TC12 · Unauthenticated request is
+              rejected</p>
+            <pre
+              style="margin: 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; color: var(--ink-body)"><span style="color: var(--amber); font-weight: 700">PATCH</span> /applications/:id/status
+<span style="color: var(--ink-muted)"># no Authorization header, no cookie</span>
+{ "status": "&lt;allowed next status&gt;" }</pre>
+          </div>
+          <div style="flex: 1 1 420px; min-width: 0; padding: 20px; background: rgba(var(--accent-rgb),0.04)">
+            <p style="margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span
+                style="padding: 2px 10px; border-radius: 6px; background: rgba(var(--accent-rgb),0.14); color: var(--accent); font-weight: 700; font-family: ui-monospace, Menlo, Consolas, monospace">401</span><span
+                style="padding: 2px 10px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-weight: 700">Passed</span>
+            </p>
+            <pre
+              style="margin: 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; color: var(--ink-body)">"Authentication required. Please provide a valid JWT Bearer token or API key."</pre>
+            <p style="margin: 12px 0 0; color: var(--ink-body)">Then an authenticated GET confirmed nothing changed, and
+              the application count stayed at 42.</p>
+          </div>
+        </div>
+
+        <div
+          style="display: flex; flex-wrap: wrap; border: 1px solid rgba(var(--tint),0.12); border-radius: 16px; overflow: hidden; background: var(--panel)">
+          <div style="flex: 1 1 420px; min-width: 0; padding: 20px; border-right: 1px solid rgba(var(--tint),0.1)">
+            <p style="margin: 0 0 8px; color: var(--ink-muted); font-weight: 700">TC16 · Non-existent application ID</p>
+            <pre
+              style="margin: 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; color: var(--ink-body)"><span style="color: var(--amber); font-weight: 700">PATCH</span> /applications/&lt;random valid-format UUID&gt;/status
+Authorization: Bearer &lt;token&gt;</pre>
+          </div>
+          <div style="flex: 1 1 420px; min-width: 0; padding: 20px; background: rgba(var(--accent-rgb),0.04)">
+            <p style="margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span
+                style="padding: 2px 10px; border-radius: 6px; background: rgba(var(--accent-rgb),0.14); color: var(--accent); font-weight: 700; font-family: ui-monospace, Menlo, Consolas, monospace">404</span><span
+                style="padding: 2px 10px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-weight: 700">Passed</span>
+            </p>
+            <pre
+              style="margin: 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; color: var(--ink-body)">"Application with ID &lt;uuid&gt; not found"</pre>
+          </div>
+        </div>
+
+        <div
+          style="display: flex; flex-wrap: wrap; border: 1px solid rgba(var(--amber-rgb),0.45); border-radius: 16px; overflow: hidden; background: var(--panel)">
+          <div style="flex: 1 1 420px; min-width: 0; padding: 20px; border-right: 1px solid rgba(var(--tint),0.1)">
+            <p style="margin: 0 0 8px; color: var(--ink-muted); font-weight: 700">TC16 · Malformed application ID</p>
+            <pre
+              style="margin: 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; color: var(--ink-body)"><span style="color: var(--amber); font-weight: 700">PATCH</span> /applications/abc!@%23/status
+Authorization: Bearer &lt;token&gt;</pre>
+          </div>
+          <div style="flex: 1 1 420px; min-width: 0; padding: 20px; background: rgba(var(--amber-rgb),0.05)">
+            <p style="margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><span
+                style="padding: 2px 10px; border-radius: 6px; background: rgba(var(--accent-rgb),0.14); color: var(--accent); font-weight: 700; font-family: ui-monospace, Menlo, Consolas, monospace">404</span><span
+                style="padding: 2px 10px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-weight: 700">Passed</span><span
+                style="padding: 2px 10px; border-radius: 999px; background: rgba(var(--amber-rgb),0.14); color: var(--amber); font-weight: 700">Finding</span>
+            </p>
+            <pre
+              style="margin: 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.6; color: var(--ink-body)">"Cannot PATCH /applications/abc!@"</pre>
+            <p style="margin: 12px 0 0; color: var(--ink-body)">No 5xx, so the test passed. But the error showed the
+              proxy had decoded <code style="color: var(--amber)">%23</code> into <code
+                style="color: var(--amber)">#</code> and cut the path short. I logged it as an observation for the dev
+              team.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- what I verify + judgment call -->
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 48px">
+        <div style="flex: 999 1 560px; min-width: 0">
+          <p style="margin: 0 0 16px; font-size: 20px; font-weight: 700; color: var(--ink)">What every case checks,
+            beyond the status code</p>
+          <ul
+            style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20"
+                viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="s-accent">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>The error message names the broken rule</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20"
+                viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="s-accent">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>A follow-up GET shows the state did not change</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20"
+                viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="s-accent">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>Audit entries are checked in the raw data with read-only SQL, not the UI</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20"
+                viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="s-accent">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>The audit actor matches the user ID in the JWT, even when the body spoofs it</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20"
+                viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="s-accent">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>No side effects ran (no license number issued)</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20"
+                viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="s-accent">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>Bad input never causes a 5xx server error</span></li>
+          </ul>
+        </div>
+        <div
+          style="flex: 1 1 320px; background: rgba(var(--amber-rgb),0.07); border: 1px solid rgba(var(--amber-rgb),0.45); border-radius: 16px; padding: 24px">
+          <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; color: var(--amber); letter-spacing: 0.06em">
+            JUDGMENT CALL</p>
+          <p style="margin: 0 0 8px; font-size: 18px; font-weight: 700; color: var(--ink)">Why most cases are Blocked
+          </p>
+          <p style="margin: 0">All 42 applications in the environment were real applicant records. Before the fix, the
+            endpoint accepted any status, so one negative test could have corrupted real data or issued a real license.
+            I ran only the safe cases and asked dev for disposable test applications for the rest.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFECTS -->
+    <section id="defects" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          Bugs I Found</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 720px; text-align: center">A few reports from my defect trackers:
+        business-logic, access-control and validation bugs, each written so a developer can reproduce it on the first
+        try.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px">
+
+        <article class="kc-card"
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--red-rgb),0.15); color: var(--red); font-size: 14px; font-weight: 700">Highest</span>
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-size: 14px; font-weight: 700">Fixed
+              &amp; verified</span>
+          </div>
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.35; color: var(--ink)">Division Manager approval skips
+            the Deputy Commissioner step</h3>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--ink)">Steps:</strong> With the application
+            at Division Manager stage and all requirements reviewed, the Division Manager clicks Approve.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--accent)">Expected:</strong> Application is
+            routed to the Deputy Commissioner; the stepper shows that stage.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--red)">Actual:</strong> The Deputy
+            Commissioner step is skipped entirely.</p>
+          <p style="margin: auto 0 0; font-size: 14px; color: var(--ink-muted)">Workflow routing · Multi-level approval
+          </p>
+        </article>
+
+        <article class="kc-card"
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--amber-rgb),0.14); color: var(--amber); font-size: 14px; font-weight: 700">High</span>
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--accent-rgb),0.12); color: var(--accent); font-size: 14px; font-weight: 700">Fixed
+              &amp; verified</span>
+          </div>
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.35; color: var(--ink)">Unassigned staff can still reject
+            an application</h3>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--ink)">Steps:</strong> As a Division Manager,
+            open an application not assigned to you, click Review on a requirement, add a comment and reject.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--accent)">Expected:</strong> View-only access
+            with a clear "view only" banner; no reject action.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--red)">Actual:</strong> The rejection goes
+            through without an assignment.</p>
+          <p style="margin: auto 0 0; font-size: 14px; color: var(--ink-muted)">Role-based access control</p>
+        </article>
+
+        <article class="kc-card"
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--amber-rgb),0.14); color: var(--amber); font-size: 14px; font-weight: 700">Medium</span>
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--tint),0.08); color: var(--ink-body); font-size: 14px; font-weight: 700">Open
+              · Row 85</span>
+          </div>
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.35; color: var(--ink)">Form field name is not converted
+            to camelCase</h3>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--ink)">Steps:</strong> In the form step
+            editor, add a field, enter "Balance Sheet" as Field Name, move focus out.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--accent)">Expected:</strong> "balanceSheet",
+            as the field hint promises.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--red)">Actual:</strong> "balancesheet", and
+            that value becomes the JSON schema key.</p>
+          <p style="margin: auto 0 0; font-size: 14px; color: var(--ink-muted)">Data integrity · Form builder</p>
+        </article>
+
+        <article class="kc-card"
+          style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--amber-rgb),0.14); color: var(--amber); font-size: 14px; font-weight: 700">Medium</span>
+            <span
+              style="padding: 2px 12px; border-radius: 999px; background: rgba(var(--tint),0.08); color: var(--ink-body); font-size: 14px; font-weight: 700">Open
+              · Row 170</span>
+          </div>
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.35; color: var(--ink)">Maximum file size of 0 MB is
+            accepted</h3>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--ink)">Steps:</strong> Add a document type,
+            enter a name, set Maximum file size to 0, move focus out.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--accent)">Expected:</strong> Validation
+            error; Add document stays disabled.</p>
+          <p style="margin: 0; font-size: 15px"><strong style="color: var(--red)">Actual:</strong> No message, and Add
+            document stays enabled.</p>
+          <p style="margin: auto 0 0; font-size: 14px; color: var(--ink-muted)">Boundary value · Input validation</p>
+        </article>
+
+      </div>
+      <p style="margin: 32px 0 0; text-align: center; font-size: 14px; color: var(--ink-muted)">Every report records
+        environment (build, device, OS, browser), preconditions, steps, expected vs actual, priority, status and the
+        linked ticket.</p>
+    </section>
+
+    <!-- RTM -->
+    <section id="rtm" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">
+          Requirements Traceability</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 760px; text-align: center">An excerpt of the RTM (32 business
+        requirements) traced forward to the tests and defects that prove or break them.</p>
+      <div
+        style="background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 24px; overflow-x: auto">
+        <table style="width: 100%; min-width: 900px; border-collapse: collapse; font-size: 15px">
+          <thead>
+            <tr style="text-align: left; color: var(--ink)">
+              <th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 80px">BR</th>
+              <th style="padding: 12px; border-bottom: 2px solid var(--accent)">Requirement</th>
+              <th style="padding: 12px; border-bottom: 2px solid var(--accent)">Feature</th>
+              <th style="padding: 12px; border-bottom: 2px solid var(--accent)">Test coverage</th>
+              <th style="padding: 12px; border-bottom: 2px solid var(--accent)">Linked defect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--accent); font-weight: 700">
+                BR-06</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Implement RBAC for staff</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">RBAC Module</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Staff Portal suite · role
+                journeys</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Unassigned staff can reject</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--accent); font-weight: 700">
+                BR-07</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Provide secure login</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Login Module</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Login &amp; Authentication
+                cases, every portal</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--ink-muted)">None
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--accent); font-weight: 700">
+                BR-11</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Support document upload</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Upload Module</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Certificate of Authority journey
+              </td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Missing required upload sections
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--accent); font-weight: 700">
+                BR-19</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Allow corrections</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Correction Workflow</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">SEC Endorsement journey</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">No instruction for Return for
+                Review</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--accent); font-weight: 700">
+                BR-20</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Enable approval process</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Approval Module</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">7-role approval journeys</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Approval skips Deputy
+                Commissioner</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1); color: var(--accent); font-weight: 700">
+                BR-25</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Enable application tracking</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Tracking Dashboard</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">Application list &amp; status
+                cases</td>
+              <td style="padding: 12px; border-bottom: 1px solid rgba(var(--tint),0.1)">"Returned" status not shown in
+                list</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px; color: var(--accent); font-weight: 700">BR-31</td>
+              <td style="padding: 12px">Maintain audit trail</td>
+              <td style="padding: 12px">Audit Logging</td>
+              <td style="padding: 12px">API test: transition logged with actor, from- and to-status</td>
+              <td style="padding: 12px; color: var(--ink-muted)">Pending endpoint</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section aria-labelledby="process-title" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px">
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+        <h2 id="process-title" class="kc-h2"
+          style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink); text-align: center">How I Test</h2>
+        <span aria-hidden="true" style="width: 100px; height: 2px; background: var(--accent)"></span>
+      </div>
+      <p style="margin: 0 auto 48px; max-width: 720px; text-align: center">The same five stages on every project, from
+        reading a user story to closing the last bug. Each one leaves something behind that the team can check.</p>
+
+      <div
+        style="background: rgba(var(--tint),0.04); border: 1px solid rgba(var(--tint),0.1); border-radius: 16px; padding: 32px 24px; overflow-x: auto">
+        <div style="min-width: 1000px">
+
+          <!-- pipeline rail -->
+          <div style="display: grid; grid-template-columns: 132px repeat(5, minmax(0, 1fr)); column-gap: 12px">
+            <span aria-hidden="true"></span>
+            <ol
+              style="grid-column: 2 / 7; list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 12px">
+              <li aria-hidden="true"
+                style="position: absolute; left: 10%; right: 10%; top: 27px; height: 2px; background: linear-gradient(90deg, rgba(var(--accent-rgb),0.25), var(--accent))">
+              </li>
+              <li
+                style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px">
+                <span
+                  style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent); background: var(--panel); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent)">01</span>
+                <span style="font-size: 20px; font-weight: 700; color: var(--ink)">Understand</span>
+                <span style="font-size: 14px; color: var(--ink-muted)">Know what "done" means</span>
+              </li>
+              <li
+                style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px">
+                <span
+                  style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent); background: var(--panel); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent)">02</span>
+                <span style="font-size: 20px; font-weight: 700; color: var(--ink)">Design</span>
+                <span style="font-size: 14px; color: var(--ink-muted)">Turn criteria into cases</span>
+              </li>
+              <li
+                style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px">
+                <span
+                  style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent); background: var(--panel); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent)">03</span>
+                <span style="font-size: 20px; font-weight: 700; color: var(--ink)">Execute</span>
+                <span style="font-size: 14px; color: var(--ink-muted)">Test like a real user</span>
+              </li>
+              <li
+                style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px">
+                <span
+                  style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent); background: var(--panel); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--accent)">04</span>
+                <span style="font-size: 20px; font-weight: 700; color: var(--ink)">Report</span>
+                <span style="font-size: 14px; color: var(--ink-muted)">Make bugs easy to fix</span>
+              </li>
+              <li
+                style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px">
+                <span
+                  style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent); background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--on-accent)">05</span>
+                <span style="font-size: 20px; font-weight: 700; color: var(--ink)">Verify</span>
+                <span style="font-size: 14px; color: var(--ink-muted)">Close the loop</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- swimlane matrix -->
+          <div
+            style="margin-top: 32px; display: grid; grid-template-columns: 132px repeat(5, minmax(0, 1fr)); gap: 12px; font-size: 15px; line-height: 1.5">
+
+            <span
+              style="align-self: center; font-size: 14px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.06em">I
+              START WITH</span>
+            <span style="padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(var(--tint),0.18)">User
+              stories, acceptance criteria, BRD</span>
+            <span
+              style="padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(var(--tint),0.18)">Requirements,
+              RTM, roles and permissions</span>
+            <span style="padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(var(--tint),0.18)">Test suite,
+              test accounts, dev or UAT build</span>
+            <span style="padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(var(--tint),0.18)">Failed
+              steps, screenshots, environment</span>
+            <span style="padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(var(--tint),0.18)">Fixed
+              tickets in the Validate lane</span>
+
+            <span
+              style="align-self: center; font-size: 14px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.06em">WHAT
+              I DO</span>
+            <span
+              style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.1); color: var(--ink-body)">Join
+              gap assessments and BA/QA regroups; flag unclear rules before anyone builds</span>
+            <span
+              style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.1); color: var(--ink-body)">Write
+              happy-path, negative, boundary, RBAC and security cases; tag Smoke or Regression</span>
+            <span
+              style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.1); color: var(--ink-body)">Run
+              smoke, regression and UAT; mark each step Passed, Failed or Blocked with a reason</span>
+            <span
+              style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.1); color: var(--ink-body)">Write
+              steps, expected vs actual and priority; trace it to the test-case row</span>
+            <span
+              style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.1); color: var(--ink-body)">Re-test
+              the fix, regress nearby features, update the case if behavior changed</span>
+
+            <span
+              style="align-self: center; font-size: 14px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.06em">I
+              HAND OFF</span>
+            <span
+              style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; background: rgba(var(--accent-rgb),0.08); border: 1px solid rgba(var(--accent-rgb),0.35); color: var(--accent); font-weight: 700"><svg
+                width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M9 12h7M9 16h7"></path>
+              </svg><span>RTM coverage links</span></span>
+            <span
+              style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; background: rgba(var(--accent-rgb),0.08); border: 1px solid rgba(var(--accent-rgb),0.35); color: var(--accent); font-weight: 700"><svg
+                width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M9 12h7M9 16h7"></path>
+              </svg><span>Test plan and suite</span></span>
+            <span
+              style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; background: rgba(var(--accent-rgb),0.08); border: 1px solid rgba(var(--accent-rgb),0.35); color: var(--accent); font-weight: 700"><svg
+                width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M9 12h7M9 16h7"></path>
+              </svg><span>Execution log with evidence</span></span>
+            <span
+              style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; background: rgba(var(--accent-rgb),0.08); border: 1px solid rgba(var(--accent-rgb),0.35); color: var(--accent); font-weight: 700"><svg
+                width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h9l4 4v14H6z"></path>
+                <path d="M9 12h7M9 16h7"></path>
+              </svg><span>Defect tracker entries</span></span>
+            <span
+              style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; background: rgba(var(--accent-rgb),0.08); border: 1px solid rgba(var(--accent-rgb),0.35); color: var(--accent); font-weight: 700"><svg
+                width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg><span>Closed defects, sign-off</span></span>
+
+            <span
+              style="align-self: center; font-size: 14px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.06em">TOOLS</span>
+            <span style="font-size: 14px; color: var(--ink-muted); padding: 0 4px">Docs · RTM sheet</span>
+            <span style="font-size: 14px; color: var(--ink-muted); padding: 0 4px">Google Sheets</span>
+            <span style="font-size: 14px; color: var(--ink-muted); padding: 0 4px">Browser · DevTools · REST ·
+              SQL</span>
+            <span style="font-size: 14px; color: var(--ink-muted); padding: 0 4px">GitLab · Jira</span>
+            <span style="font-size: 14px; color: var(--ink-muted); padding: 0 4px">GitLab boards · Sheets</span>
+          </div>
+
+          <!-- bug lifecycle loop -->
+          <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(var(--tint),0.1)">
+            <p style="margin: 0 0 4px; font-size: 20px; font-weight: 700; color: var(--ink)">When a test fails: the
+              bug's lifecycle</p>
+            <p style="margin: 0 0 24px; font-size: 14px; color: var(--ink-muted)">Stages 03 → 05 repeat until the fix
+              holds.</p>
+            <div
+              style="display: grid; grid-template-columns: minmax(0,1fr) 48px minmax(0,1fr) 48px minmax(0,1fr) 48px minmax(0,1fr) 48px minmax(0,1fr); align-items: center">
+              <span
+                style="padding: 14px; border-radius: 10px; background: rgba(var(--red-rgb),0.12); border: 1px solid rgba(var(--red-rgb),0.45); text-align: center"><b
+                  style="display: block; color: var(--red)">Found</b><span style="font-size: 14px">during
+                  execution</span></span>
+              <svg width="48" height="12" viewBox="0 0 48 12" aria-hidden="true">
+                <path d="M6 6h32" stroke-width="2" class="s-muted"></path>
+                <path d="M36 1l7 5-7 5z" class="f-muted"></path>
+              </svg>
+              <span
+                style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.18); text-align: center"><b
+                  style="display: block; color: var(--ink)">Logged</b><span style="font-size: 14px">GitLab or Jira,
+                  prioritized</span></span>
+              <svg width="48" height="12" viewBox="0 0 48 12" aria-hidden="true">
+                <path d="M6 6h32" stroke-width="2" class="s-muted"></path>
+                <path d="M36 1l7 5-7 5z" class="f-muted"></path>
+              </svg>
+              <span
+                style="padding: 14px; border-radius: 10px; background: rgba(var(--tint),0.06); border: 1px solid rgba(var(--tint),0.18); text-align: center"><b
+                  style="display: block; color: var(--ink)">Fixed</b><span style="font-size: 14px">developer picks it
+                  up</span></span>
+              <svg width="48" height="12" viewBox="0 0 48 12" aria-hidden="true">
+                <path d="M6 6h32" stroke-width="2" class="s-muted"></path>
+                <path d="M36 1l7 5-7 5z" class="f-muted"></path>
+              </svg>
+              <span
+                style="padding: 14px; border-radius: 10px; background: rgba(var(--amber-rgb),0.1); border: 1px solid rgba(var(--amber-rgb),0.45); text-align: center"><b
+                  style="display: block; color: var(--amber)">Re-tested</b><span style="font-size: 14px">in the Validate
+                  lane</span></span>
+              <svg width="48" height="12" viewBox="0 0 48 12" aria-hidden="true">
+                <path d="M6 6h32" stroke-width="2" class="s-accent"></path>
+                <path d="M36 1l7 5-7 5z" class="f-accent"></path>
+              </svg>
+              <span
+                style="padding: 14px; border-radius: 10px; background: rgba(var(--accent-rgb),0.1); border: 1px solid rgba(var(--accent-rgb),0.45); text-align: center"><b
+                  style="display: block; color: var(--accent)">Closed</b><span style="font-size: 14px">verified
+                  fixed</span></span>
+
+              <!-- reopen return path: Re-tested back to Logged -->
+              <span></span>
+              <span></span>
+              <span style="position: relative; height: 40px"><span aria-hidden="true"
+                  style="position: absolute; left: 50%; right: 0; top: 6px; bottom: 0; border-left: 2px dashed var(--amber); border-bottom: 2px dashed var(--amber); border-bottom-left-radius: 10px"></span><svg
+                  width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"
+                  style="position: absolute; left: calc(50% - 5px); top: 0">
+                  <path d="M6 0l6 9H0z" class="f-amber"></path>
+                </svg></span>
+              <span style="position: relative; height: 40px"><span aria-hidden="true"
+                  style="position: absolute; left: 0; right: 0; bottom: 0; border-bottom: 2px dashed var(--amber)"></span></span>
+              <span style="position: relative; height: 40px"><span aria-hidden="true"
+                  style="position: absolute; left: 0; right: 0; bottom: 0; border-bottom: 2px dashed var(--amber)"></span></span>
+              <span style="position: relative; height: 40px"><span aria-hidden="true"
+                  style="position: absolute; left: 0; right: 0; bottom: 0; border-bottom: 2px dashed var(--amber)"></span></span>
+              <span style="position: relative; height: 40px"><span aria-hidden="true"
+                  style="position: absolute; left: 0; right: 50%; top: 0; bottom: 0; border-right: 2px dashed var(--amber); border-bottom: 2px dashed var(--amber); border-bottom-right-radius: 10px"></span></span>
+              <span></span>
+              <span></span>
+              <span
+                style="grid-column: 3 / 8; margin-top: 8px; text-align: center; font-size: 14px; color: var(--amber); font-weight: 700">Still
+                failing? Reopened with new evidence and sent back</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <footer id="contact"
+      style="background: linear-gradient(135deg, var(--bg) 0%, var(--bg-deep) 100%); border-top: 1px solid rgba(var(--tint),0.1)">
+      <div
+        style="max-width: 1200px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+        <h2 class="kc-h2" style="margin: 0; font-size: 48px; line-height: 1.2; color: var(--ink)">Let's Connect</h2>
+        <p style="margin: 0; max-width: 560px; font-size: 18px">Looking for a QA / Quality Engineer role where careful
+          testing matters. I'd love to talk.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px">
+          <a class="kc-btn" href="mailto:[YOUR EMAIL]"
+            style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; background: var(--accent); color: var(--on-accent); font-weight: 700">Get
+            in Touch</a>
+          <a class="kc-btn" href="https://github.com/kaysea-bgnt"
+            style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; border: 2px solid var(--accent); color: var(--accent); font-weight: 700">GitHub</a>
+          <a class="kc-btn" href="https://www.linkedin.com/in/kristina-cassandra-bognot/"
+            style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; border: 2px solid var(--accent); color: var(--accent); font-weight: 700">LinkedIn</a>
+        </div>
+        <p style="margin: 48px 0 0; font-size: 14px; color: var(--ink-muted)">Project names and client details are
+          generalized to respect confidentiality.</p>
+      </div>
+    </footer>
+
+  </div>
+  <script>
+    var KC_PROJECTS = [
+      {
+        name: 'Multi-Portal Licensing', meta: 'Licensing platform', file: 'Licensing – Test Cases', colE: 'TYPE',
+        tabs: ['Admin Portal', 'Workflow', 'Staff Portal', 'Company Admin', 'Agency', 'Agent', 'Testing Journeys', 'Bug Reports', 'UAT Batch 1', 'UAT Batch 2'], activeTab: 'Company Admin',
+        rows: [
+          { tc: 'User can register a company account', steps: '1. Click "Sign up for a new account"', exp: 'User is taken to the company registration page', status: 'Passed', e: 'Smoke & Regression' },
+          { tc: 'User can log in through the Staff Portal', steps: '1. Leave inputs empty and click Login', exp: 'Login button stays disabled', status: 'Passed', e: 'Regression Only' },
+          { tc: 'Admin can log in to the Admin Portal', steps: '1. Open the admin login page', exp: 'Logo, Username, Password and Login button are shown', status: 'Passed', e: 'Regression Only' },
+          { tc: 'Agency opens the sign-up link from the invitation email', steps: '1. Open the invitation email', exp: 'Subject reads "{Company} invited your agency…"', status: 'Not run', e: 'Smoke & Regression' },
+          { tc: 'Agent activates the account from the invitation email', steps: '1. Open the invitation email in the agent inbox', exp: 'Registration invitation is received', status: 'Not run', e: 'Smoke & Regression' }
+        ],
+        facts: [{ k: '6', v: 'portal suites in one workbook' }, { k: '7', v: 'roles in approval journeys' }, { k: '4', v: 'bug report tabs, incl. UAT batches' }],
+        note: 'One tab per portal, role-by-role journeys for the approval chain, and bug-report tabs that tie every finding to a ticket.'
+      },
+      {
+        name: 'Workflow Master Test Suite', meta: 'Workflow builder', file: 'Workflow – Master Test Suite', colE: 'NOTES',
+        tabs: ['Master Suite', 'Status Transition (API)', 'API Bug Reports', 'Bug Reports'], activeTab: 'Master Suite',
+        rows: [
+          { tc: 'Admin can log in to the workflow portal', steps: '1. Navigate to the portal login page', exp: 'Logo, header, Username, Password and Login are shown', status: 'Passed', e: 'Screenshot linked' },
+          { tc: '', steps: '2. Leave Username and Password empty', exp: 'Login disabled; helper text shown', status: 'Blocked', e: 'Needs a logout not yet approved' },
+          { tc: '', steps: '5. Input valid credentials', exp: 'Login enabled; helper text hidden', status: 'Passed', e: 'Screenshot linked' },
+          { tc: 'TC01 – Allowed status transition succeeds', steps: '2. PATCH applications/:id/status', exp: '200; response body shows the new status', status: 'Blocked', e: 'Needs disposable test data' },
+          { tc: 'TC02 – Transition is audited', steps: '1. GET /applications/:id/audit-logs', exp: 'Entry has actorId, fromStatus, toStatus', status: 'Blocked', e: 'Waiting on dev endpoint' }
+        ],
+        facts: [{ k: '9', v: 'defects traced to test-case rows' }, { k: 'API', v: 'status and audit-log checks' }, { k: '1:1', v: 'screenshot per executed step' }],
+        note: 'Every executed step links to its screenshot, and every blocked step says why, so what is left to run is obvious.'
+      },
+      {
+        name: 'Engagement App Regression', meta: 'Employee engagement app', file: 'Engagement App – Regression #2', colE: 'ROLE',
+        tabs: ['Cover', 'Read Me', 'Test Accounts', 'Platform Admin', 'App Admin', 'HR', 'Manager', 'Employee'], activeTab: 'HR',
+        rows: [
+          { tc: 'User receives an onboarding email with an activation link', steps: '1. Navigate to the email inbox', exp: 'Inbox is shown', status: 'Passed', e: 'HR' },
+          { tc: '', steps: '2. Open the "You are invited to join…" email', exp: 'Invitation email body is shown', status: 'Passed', e: 'HR' },
+          { tc: '', steps: '3. Click "Complete Sign-Up"', exp: 'Sign-up page with pre-filled email and name and password fields', status: 'Passed', e: 'HR' },
+          { tc: 'User can open the Admin Portal landing page', steps: '1. Open the admin login address', exp: 'Login page with branding, fields and Login button', status: 'Passed', e: 'Platform Admin' },
+          { tc: 'User can log in with valid credentials', steps: '2. Enter a valid password', exp: 'Accepts up to 50 characters, blocks the 51st', status: 'Passed', e: 'Platform Admin' }
+        ],
+        facts: [{ k: '19', v: 'user stories planned from' }, { k: '5', v: 'role-based suites' }, { k: 'UAT', v: 'brief with sign-off criteria' }],
+        note: 'Cover, UAT brief and test accounts up front, then one tab per role so each tester knows exactly what to run.'
+      },
+      {
+        name: 'Timekeeping Test Plan', meta: 'HR timekeeping module', file: 'Timekeeping – Test Planning', colE: 'TECHNIQUE',
+        tabs: ['Draft'], activeTab: 'Draft',
+        rows: [
+          { tc: 'Create a valid time log record', steps: '7. Click Submit', exp: 'Log created; attendance record updated', status: 'Planned', e: 'Happy path' },
+          { tc: 'Duplicate log is blocked or warned', steps: '2. Enter details matching an existing log', exp: 'Warning or validation block', status: 'Planned', e: 'Negative' },
+          { tc: 'Invalid or future timestamp is blocked', steps: '2. Enter a timestamp beyond system limits', exp: 'Inline error; submission blocked', status: 'Planned', e: 'Boundary' },
+          { tc: 'User without permission is denied', steps: '1. Open the create page by direct URL', exp: 'Access denied; create buttons hidden', status: 'Planned', e: 'RBAC' },
+          { tc: 'Logs are limited to the assigned tenant', steps: '1. Submit another tenant’s employee via a modified URL', exp: 'Blocked with an out-of-scope error', status: 'Planned', e: 'Security' },
+          { tc: 'Degraded state when the summary service is down', steps: '1. Open the Timekeeping Dashboard', exp: 'Friendly "temporarily unavailable" alert, no raw error', status: 'Planned', e: 'Resilience' }
+        ],
+        facts: [{ k: '6', v: 'techniques in one plan' }, { k: 'RBAC', v: 'plus tenant-isolation cases' }, { k: 'Edge', v: 'empty and degraded states' }],
+        note: 'Written from user stories before the build: positive, negative, boundary, permission, security and resilience cases side by side.'
+      }
+    ];
+    var KC_CHIP = {
+      'Passed': 'display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: rgba(var(--accent-rgb),0.12); color: var(--accent)',
+      'Blocked': 'display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: rgba(var(--amber-rgb),0.14); color: var(--amber)',
+      'Not run': 'display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: rgba(var(--tint),0.08); color: var(--ink-body)',
+      'Planned': 'display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: rgba(var(--blue-rgb),0.14); color: var(--blue)'
+    };
+    var KC_BTN = 'text-align: left; width: 100%; min-height: 64px; padding: 14px 18px; border-radius: 10px; cursor: pointer; font-family: inherit; ';
+    var KC_ROW = 'display: grid; grid-template-columns: 44px 1.25fr 1.25fr 1.5fr 104px 1fr; border-bottom: 1px solid rgba(var(--tint),0.08); ';
+    var KC_NUM = 'min-height: 44px; padding: 8px 4px; border: 0; border-right: 1px solid rgba(var(--tint),0.08); font-family: inherit; font-size: 14px; cursor: pointer; ';
+    var KC_TAB = 'flex: none; padding: 10px 14px; white-space: nowrap; ';
+
+    var st = { p: 0, r: 0 };
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function render() {
+      var P = KC_PROJECTS[st.p];
+      document.getElementById('kc-picker').innerHTML = KC_PROJECTS.map(function (p, i) {
+        var on = i === st.p;
+        return '<button type="button" data-p="' + i + '" aria-pressed="' + on + '" style="' + KC_BTN + (on ? 'background: rgba(var(--accent-rgb),0.1); border: 1px solid var(--accent); color: var(--accent)' : 'background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); color: var(--ink)') + '"><span style="display: block; font-size: 14px; font-weight: 700; color: var(--ink-muted)">0' + (i + 1) + ' · ' + esc(p.meta) + '</span><span style="display: block; margin-top: 4px; font-size: 18px; font-weight: 700; line-height: 1.35">' + esc(p.name) + '</span></button>';
+      }).join('');
+      document.getElementById('kc-rows').innerHTML = P.rows.map(function (r, i) {
+        var on = i === st.r;
+        return '<div style="' + KC_ROW + (on ? 'background: rgba(var(--accent-rgb),0.07); box-shadow: inset 0 0 0 2px var(--accent)' : 'background: transparent') + '"><button type="button" data-r="' + i + '" aria-label="Select row ' + (i + 2) + '" style="' + KC_NUM + (on ? 'background: var(--accent); color: var(--on-accent); font-weight: 700' : 'background: var(--panel-2); color: var(--ink-muted)') + '">' + (i + 2) + '</button>'
+          + '<span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08); color: var(--ink)">' + esc(r.tc) + '</span>'
+          + '<span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)">' + esc(r.steps) + '</span>'
+          + '<span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)">' + esc(r.exp) + '</span>'
+          + '<span style="padding: 8px 12px; border-right: 1px solid rgba(var(--tint),0.08)"><span style="' + (KC_CHIP[r.status] || KC_CHIP['Not run']) + '">' + esc(r.status) + '</span></span>'
+          + '<span style="padding: 8px 12px; color: var(--ink-muted)">' + esc(r.e) + '</span></div>';
+      }).join('');
+      document.getElementById('kc-tabs').innerHTML = P.tabs.map(function (t) { return '<span style="' + KC_TAB + (t === P.activeTab ? 'color: var(--accent); font-weight: 700; background: var(--panel); box-shadow: inset 0 3px 0 var(--accent)' : 'color: var(--ink-muted)') + '">' + esc(t) + '</span>'; }).join('');
+      document.getElementById('kc-facts').innerHTML = P.facts.map(function (f) { return '<div style="flex: 1 1 160px; background: rgba(var(--tint),0.05); border: 1px solid rgba(var(--tint),0.1); border-radius: 10px; padding: 16px"><p style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.1; color: var(--accent)">' + esc(f.k) + '</p><p style="margin: 4px 0 0; font-size: 14px; color: var(--ink-body)">' + esc(f.v) + '</p></div>'; }).join('');
+      var sel = P.rows[st.r];
+      document.getElementById('kc-file').textContent = P.file;
+      document.getElementById('kc-colE').textContent = P.colE;
+      document.getElementById('kc-note').textContent = P.note;
+      document.getElementById('kc-cell').textContent = 'A' + (st.r + 2);
+      document.getElementById('kc-formula').textContent = sel.tc || sel.steps;
+    }
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.p != null) { st = { p: +b.dataset.p, r: 0 }; render(); }
+      else if (b.dataset.r != null) { st.r = +b.dataset.r; render(); var n = document.querySelector('[data-r="' + st.r + '"]'); if (n) n.focus(); }
+    });
+    render();
+  </script>
+  <script>
+    (function () {
+      var b = document.getElementById('kc-theme-btn'); if (!b) return;
+      function cur() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark' }
+      function sync() { var l = cur() === 'light'; b.setAttribute('aria-label', l ? 'Switch to dark mode' : 'Switch to light mode'); b.setAttribute('aria-pressed', String(l)) }
+      b.addEventListener('click', function () { var n = cur() === 'light' ? 'dark' : 'light'; document.documentElement.setAttribute('data-theme', n); try { localStorage.setItem('kc-theme', n) } catch (e) { } sync() }); sync()
+    })();
+  </script>
+</body>
+
+</html>
