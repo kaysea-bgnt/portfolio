@@ -58,6 +58,9 @@
     }
 
     @media (max-width:768px) {
+      .kc-hero-photo{order:-1;flex-basis:100% !important}
+      .kc-avatar{width:160px !important;height:160px !important}
+      .kc-hero{gap:24px !important;padding-top:40px !important}
       .kc-navlinks {
         display: none !important
       }
@@ -286,7 +289,7 @@
         style="max-width: 1200px; margin: 0 auto; padding: 96px 32px 64px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
         <div style="flex: 999 1 520px; min-width: 0">
           <p style="margin: 0 0 8px; font-size: 20px; font-weight: 700; line-height: 1.4; color: var(--ink-muted)">
-            Quality Engineer · Manual &amp; API Testing</p>
+            Quality Engineer | Manual Testing, Automation &amp; API Testing</p>
           <h1 style="margin: 0">
             <span class="kc-hello" style="display: block; font-size: 56px; line-height: 1.15; color: var(--ink)">Hello
               I'm</span>
@@ -294,11 +297,8 @@
               style="display: block; margin-top: 8px; font-size: 64px; line-height: 1.1; letter-spacing: -0.01em; color: var(--accent)">Kristina
               Cassandra "KC" Bognot</span>
           </h1>
-          <p style="margin: 24px 0 32px; font-size: 18px; color: var(--ink-body); max-width: 640px">Quality Assurance
-            Engineer | Business Analyst |
-            I turn user stories and acceptance criterias into test cases, test cases into
-            clear bug reports, and requirements into
-            traceable coverage.</p>
+          <p style="margin: 24px 0 32px; font-size: 18px; color: var(--ink-body); max-width: 640px">
+            QA with a business-analysis mindset | I turn user stories and acceptance criteria into test cases, test cases into clear bug reports, and requirements into traceable coverage. I start testing before there’s code, by asking what “done” means, then I prove it with manual, API and automated checks.</p>
           <div class="kc-hero-ctas" style="display: flex; flex-wrap: wrap; gap: 16px">
             <a class="kc-btn" href="#work"
               style="display: inline-flex; align-items: center; min-height: 44px; padding: 12px 28px; border-radius: 6px; background: var(--accent); color: var(--on-accent); font-weight: 700">See
@@ -308,8 +308,8 @@
               CV ↓</a>
           </div>
         </div>
-        <div style="flex: 1 1 300px; display: flex; justify-content: center">
-          <div
+        <div class="kc-hero-photo" style="flex: 1 1 300px; display: flex; justify-content: center">
+          <div class="kc-avatar"
             style="width: 300px; height: 300px; max-width: 100%; border-radius: 50%; border: 3px solid var(--accent); overflow: hidden; flex: none">
             <img src="kaysea.jpg" alt="Kristina Bognot"
               style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 50%">
